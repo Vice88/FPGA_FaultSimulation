@@ -7,7 +7,8 @@ set FILEPATH [file dirname [file normalize $argv0]]
 # adjust path
 
 project_open -force $FILEPATH/FaultInjectionTester_restored/FaultInjectionTester
-# new compilation with your quartus version
+
+#new compilation with your quartus version
 #quartus_map
 #quartus_fit
 execute_module -tool map
@@ -21,7 +22,7 @@ set LUTValue [lindex $argv [expr {$i + 1}]]
 puts "nodeName: $nodeName"
 puts "LUTValue: $LUTValue"
 
-#															adjust component path!
+# adjust component path!
 set oldValue [get_node_info -node [get_node_by_name -name $COMPONENT_PATH[set nodeName]] -info "Sum LUT Mask"]
 [set_node_info -node [get_node_by_name -name $COMPONENT_PATH[set nodeName]] -info "Sum LUT Mask" $LUTValue]
 puts "after changing LutValue to"
@@ -29,7 +30,7 @@ puts [get_node_info -node [get_node_by_name -name $COMPONENT_PATH[set nodeName]]
 puts "check and save success: " 
 puts [check_netlist_and_save]
 
-# Ihr Wichser heißt doch beide Daniel...
+# execution
 exec $FILEPATH\\FaultInjectionTest.exe >&@stdout
 
 # undo the changes
