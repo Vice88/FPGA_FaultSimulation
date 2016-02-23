@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : IRA.cpp
-// Author      : Daniel
+// Author      : M Weiß
 // Version     :
 // Copyright   : Your copyright notice
 //============================================================================
@@ -10,19 +10,20 @@
 #include "CGate.h"
 #include "CComponent.h"
 
+
+// added automatic search for execution path
 std::string ExePath();
 void  FindFile(const std::wstring &directory, std::wstring &name ,std::vector<std::wstring> &foundFiles);
-
-
 
 std::wstring HDD = L"F:\\Altera";
 std::string PROJECT_PATH = ExePath();
 std::string TEST_SCRIPT = "test_scriptLoop.tcl ";
 std::ofstream TEST_FILE("test_file_quartus.bat");
 
-//add global variables (strings) for things like clk, lcOut_, lc_, mod_, ...
 
+//add global variables (strings) for things like clk, lcOut_, lc_, mod_, ...
 //declaration of standard gates
+
 std::string mnand2_entity = "library ieee;\n"
 							"use ieee.std_logic_1164.all;\n"
 							"use ieee.std_logic_unsigned.all;\n"
